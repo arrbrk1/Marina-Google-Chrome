@@ -1,5 +1,11 @@
 from discord.ext import tasks
 import discord
+import os
+from dotenv import load_dotenv
+
+load_dotenv("marina.env")
+
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.all()
 intents.presences = True
@@ -42,4 +48,4 @@ class MyClient(discord.Client):
 
 
 client = MyClient(intents=intents)
-client.run("OTIzMDU4NDI4MTUzMzExMjUz.YcKfJg.IhQIC89h6Z7bKaxtP8aVfATLMxI")
+client.run(TOKEN)
